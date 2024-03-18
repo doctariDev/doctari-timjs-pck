@@ -1,0 +1,13 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json" // Update this path to point to your tsconfig.json file
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "@doctarigroup/eslint-config",
+    "@doctarigroup/eslint-config-typescript"
+  ]
+}

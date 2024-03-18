@@ -1,0 +1,12 @@
+.idea
+yarn-error.log
+node_modules
+public
+dist
+tmp
+cdk.out
+# make sure not to gitignore types/package.json with any pattern, otherwise standard-version will not bump it
+types/*.js
+types/*.ts
+.env
+.vscode

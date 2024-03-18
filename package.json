@@ -1,0 +1,43 @@
+{
+  "name": "@doctaridev/doctari-timjs-pck",
+  "version": "1.0.0",
+  "description": "Dummy package for TimJS",
+  "keywords": [
+    "candidate",
+    "compliance",
+    "time-tracking",
+    "rules",
+    "regulation"
+  ],
+  "author": "Doctari Group Technologies",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc -p .",
+    "lint": "yarn lint:js && yarn lint:json && yarn validate:typescript",
+    "lint:fix": "yarn lint:fix:js && yarn lint:fix:json",
+    "lint:fix:js": "eslint --fix ./src",
+    "lint:fix:json": "eslint ./schemas package.json --ext .json --no-error-on-unmatched-pattern --fix",
+    "lint:js": "eslint ./src",
+    "lint:json": "eslint ./schemas package.json --ext .json --no-error-on-unmatched-pattern",
+    "release": "git add . && standard-version --tag-prefix --commit-all --bumpFiles package.json --bumpFiles types/package.json",
+    "release:publish": "git push --follow-tags",
+    "validate:typescript": "tsc --project tsconfig.lint.json"
+  },
+  "devDependencies": {
+    "@doctaridev/schemas": "^2.255.0",
+    "@doctarigroup/eslint-config": "^3.66.0",
+    "@doctarigroup/eslint-config-typescript": "^3.66.0",
+    "eslint": "^8.56.0",
+    "standard-version": "^9.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "yup": "^1.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
