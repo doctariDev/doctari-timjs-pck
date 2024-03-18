@@ -5,9 +5,5 @@
   },
   "plugins": [
     "@typescript-eslint"
-  ],
-  "extends": [
-    "@doctarigroup/eslint-config",
-    "@doctarigroup/eslint-config-typescript"
   ]
 }

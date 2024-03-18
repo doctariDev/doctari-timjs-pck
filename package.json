@@ -13,20 +13,12 @@
   "author": "Doctari Group Technologies",
   "scripts": {
     "build": "tsc -p .",
-    "lint": "yarn lint:js && yarn lint:json && yarn validate:typescript",
-    "lint:fix": "yarn lint:fix:js && yarn lint:fix:json",
-    "lint:fix:js": "eslint --fix ./src",
-    "lint:fix:json": "eslint ./schemas package.json --ext .json --no-error-on-unmatched-pattern --fix",
-    "lint:js": "eslint ./src",
-    "lint:json": "eslint ./schemas package.json --ext .json --no-error-on-unmatched-pattern",
+    "lint": "eslint --ext .ts",
+    "lint:fix": "eslint --ext .ts --fix .",
     "release": "git add . && standard-version --tag-prefix --commit-all --bumpFiles package.json --bumpFiles types/package.json",
-    "release:publish": "git push --follow-tags",
-    "validate:typescript": "tsc --project tsconfig.lint.json"
+    "release:publish": "git push --follow-tags"
   },
   "devDependencies": {
-    "@doctaridev/schemas": "^2.255.0",
-    "@doctarigroup/eslint-config": "^3.66.0",
-    "@doctarigroup/eslint-config-typescript": "^3.66.0",
     "eslint": "^8.56.0",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.2",
