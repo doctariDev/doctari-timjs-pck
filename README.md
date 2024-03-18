@@ -8,11 +8,11 @@
 
 ## Overview
 
-Candidate Time Tracking Compliance DE is an advanced solution crafted to address the stringent regulations mandated by the German government concerning time tracking for Doctari candidates.
+Example of a simple time tracking compliance package for Doctari candidates in Germany. The package is built using TypeScript and is published to Github package registry.
 
 ## Building
 
-To build Candidate Time Tracking Compliance DE, follow these straightforward installation steps:
+To build doctari-timjs-pck, follow these straightforward installation steps:
 
 ```bash
 $ git clone https://github.com/your-username/doctari-timjs-pck.git

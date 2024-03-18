@@ -9,8 +9,8 @@
     "rules",
     "regulation"
   ],
-  "author": "Doctari Group Technologies",
   "license": "ISC",
+  "author": "Doctari Group Technologies",
   "scripts": {
     "build": "tsc -p .",
     "lint": "yarn lint:js && yarn lint:json && yarn validate:typescript",

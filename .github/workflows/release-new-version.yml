@@ -1,0 +1,57 @@
+name: Release new version
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
+      - name: 'Setup cache for node_modules'
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+            ~/.cache
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: 'Prepare git'
+        run: |
+          git config --global user.email "it@doctari.de"
+          git config --global user.name "ci user"
+          git branch -u origin/master master
+
+      - name: 'Authenticate with GitHub package registry (publish)'
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACCESS_TOKEN_PUBLISH_GITHUB_PACKAGES }}" > ~/.npmrc
+
+      - name: 'Set up environment'
+        run: echo '${{ secrets.ENV }}' > ./.env
+
+      - name: 'Install project'
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn install
+
+      - name: 'Check code style'
+        run: yarn lint
+
+      - name: 'Build'
+        run: yarn build
+
+      - name: 'Prepare release'
+        run: |
+          yarn release
+          yarn release:publish
+          cp ./package.json ./dist/package.json
+
+      - name: 'Publish candidate-time-tracking-compliance-de package'
+        run: yarn publish dist
