@@ -16,7 +16,8 @@
     "lint": "eslint --ext .ts",
     "lint:fix": "eslint --ext .ts --fix .",
     "release": "git add . && standard-version --tag-prefix --commit-all --bumpFiles package.json --bumpFiles types/package.json",
-    "release:publish": "git push --follow-tags"
+    "release:publish": "git push --follow-tags",
+    "docs": "typedoc"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
@@ -31,5 +32,8 @@
   "publishConfig": {
     "access": "restricted",
     "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {
+    "typedoc": "^0.25.12"
   }
 }
